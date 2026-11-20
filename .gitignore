@@ -1,0 +1,12 @@
+# Your real CV data, applications and generated PDFs stay out of git.
+/data/
+/output/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
