@@ -1,0 +1,77 @@
+{
+  "name": "Alex Rivera",
+  "headline": "SENIOR FRONT END ENGINEER",
+  "contact": {
+    "phone": "+00 000 000 000",
+    "email": "alex@example.com",
+    "location": "City, Country",
+    "linkedin": "linkedin.com/in/example",
+    "linkedin_url": "https://linkedin.com/in/example"
+  },
+  "skills": [
+    {
+      "label": "Front-end",
+      "text": "JavaScript, TypeScript, React, HTML, CSS, Sass, responsive design, accessibility"
+    },
+    {
+      "label": "Architecture",
+      "text": "Design systems, component libraries, design tokens, front-end architecture, performance budgets"
+    },
+    {
+      "label": "Testing",
+      "text": "Playwright (visual regression), Jest, Storybook"
+    },
+    {
+      "label": "Delivery",
+      "text": "Git, GitHub Actions, Jenkins, CI/CD, code review"
+    },
+    {
+      "label": "Backend & tooling",
+      "text": "Node.js, REST APIs, SQL"
+    }
+  ],
+  "education": [
+    "Example University, Country. BSc in Computer Science, 2012-2016."
+  ],
+  "languages": [
+    "English | Native",
+    "Spanish | Professional"
+  ],
+  "awards": [],
+  "references": [
+    {
+      "name": "Jordan Lee",
+      "title": "Engineering Manager",
+      "company": "Northwind Labs",
+      "email": "jordan.lee@example.com",
+      "linkedin": "linkedin.com/in/example-manager",
+      "linkedin_url": "https://linkedin.com/in/example-manager"
+    }
+  ],
+  "profile": [
+    "Front-end engineer with 8+ years across B2B SaaS and retail, remote-first for the last 5. I build interfaces that hold up under accessibility, performance and maintenance pressure, and I leave the codebase easier to change than I found it.",
+    "I specialise in front-end architecture: design systems, component libraries and the testing that keeps them honest. At Northwind Labs a 40-component React design system replaced three competing UI libraries across five product teams; at Contoso Retail I rewrote checkout from jQuery to React and cut median completion time by 28%."
+  ],
+  "experience": [
+    {
+      "title": "SENIOR FRONT END ENGINEER",
+      "meta": "NORTHWIND LABS | REMOTE, SPAIN | 2022 - PRESENT",
+      "bullets": [
+        "**Design system adopted by five product teams —** Built and maintained a React design system of 40 components adopted by five product teams, cutting new-screen build time from days to hours and removing three competing UI libraries.",
+        "**Accessibility programme —** Ran an accessibility programme across the customer portal: keyboard navigation, focus management and screen-reader testing, raising the automated audit score from 62 to 96 and closing the critical findings.",
+        "**Visual regression safety net —** Introduced Playwright visual regression across themes and breakpoints, so UI changes are reviewed as expected/actual/diff images before merge.",
+        "**Tech**: React · TypeScript · Sass · Playwright · GitHub Actions"
+      ]
+    },
+    {
+      "title": "FRONT END DEVELOPER",
+      "meta": "CONTOSO RETAIL | CITY, COUNTRY | 2018 - 2022",
+      "bullets": [
+        "**Checkout rewrite —** Rewrote the checkout flow from jQuery to React, reducing median completion time by 28% and dropping the abandonment rate by 6 points.",
+        "**Component library from scratch —** Created the first shared component library for the storefront and documented it in Storybook for the product and design teams.",
+        "**Performance budget —** Set a performance budget enforced in CI, keeping the largest contentful paint under 2.5 seconds on mid-range mobile.",
+        "**Tech**: React · JavaScript · Sass · Storybook · Jenkins"
+      ]
+    }
+  ]
+}

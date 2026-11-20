@@ -1,0 +1,162 @@
+version: 1
+updated: 2026-01-01
+
+# ============================================================
+# The evidence database. This is the ONLY source of facts for a CV.
+#
+# Claim weights
+#   lead      = a headline achievement; on the CV by default
+#   support   = reinforces or complements; included when relevant or when space allows
+#   interview = mentioned in conversation only, NEVER on a CV
+#
+# Skill levels
+#   shipped    = in production, defensible under questioning
+#   working    = used, not expert (word it modestly)
+#   conceptual = understood, no production use (a gap, never a bullet)
+#   none       = not yours (a gap, never a bullet)
+#
+# Optional skill flags
+#   show: on_demand = only add this skill to a CV when the posting asks for it
+#   years: N        = years of real use, if you want to state it
+#
+# Write claims as facts you could defend for ten minutes in an interview.
+# Numbers, scope and employers must be true; the CV may only reword them.
+# ============================================================
+
+profile:
+  name: Alex Rivera
+  headline: Senior Front End Engineer
+  email: alex@example.com
+  phone: "+00 000 000 000"
+  location: City, Country
+  linkedin: linkedin.com/in/example
+  years_experience: 8+
+  remote_experience: 5+ years remote-first, distributed teams across Europe
+  summary_facts:
+    - Bilingual English/Spanish
+    - Specialises in front-end architecture: design systems, accessibility, performance
+    - Works with AI agents under human supervision (architecture, review and releases stay engineer-owned)
+
+languages:
+  - { lang: English, level: native }
+  - { lang: Spanish, level: professional }
+
+education:
+  - { school: "Example University", degree: "BSc in Computer Science", period: "2012-2016", type: degree }
+
+# ------------------------------------------------------------
+# Experience, newest first. `id` prefixes the claim ids.
+# ------------------------------------------------------------
+experience:
+  - id: northwind
+    company: Northwind Labs
+    title: Senior Front End Engineer
+    location: Remote, Spain
+    period: 2022 - Present
+    claims:
+      - id: nw-001
+        weight: lead
+        title: Design system adopted by five product teams
+        text: >-
+          Built and maintained a React design system of 40 components adopted by five
+          product teams, cutting new-screen build time from days to hours and removing
+          three competing UI libraries.
+        skills: [react, typescript, design-systems, sass]
+        metrics: { components: 40, teams: 5, libraries_removed: 3 }
+
+      - id: nw-002
+        weight: lead
+        title: Accessibility programme
+        text: >-
+          Ran an accessibility programme across the customer portal: keyboard navigation,
+          focus management and screen-reader testing, raising the automated audit score
+          from 62 to 96 and closing the critical findings.
+        skills: [accessibility, react, testing]
+        metrics: { audit_before: 62, audit_after: 96 }
+
+      - id: nw-003
+        weight: support
+        title: Visual regression safety net
+        text: >-
+          Introduced Playwright visual regression across themes and breakpoints, so UI
+          changes are reviewed as expected/actual/diff images before merge.
+        skills: [playwright, testing, ci-cd]
+
+      - id: nw-004
+        weight: interview
+        title: Vendor evaluation
+        text: >-
+          Evaluated three CMS vendors against a weighted scorecard and recommended the
+          one adopted by the team.
+        skills: [cms]
+
+    tech: [React, TypeScript, Sass, Playwright, GitHub Actions]
+
+  - id: contoso
+    company: Contoso Retail
+    title: Front End Developer
+    location: City, Country
+    period: 2018 - 2022
+    claims:
+      - id: ct-001
+        weight: lead
+        title: Checkout rewrite
+        text: >-
+          Rewrote the checkout flow from jQuery to React, reducing median completion time
+          by 28% and dropping the abandonment rate by 6 points.
+        skills: [react, javascript, performance]
+        metrics: { completion_time: "-28%", abandonment: "-6pp" }
+
+      - id: ct-002
+        weight: support
+        title: Component library from scratch
+        text: >-
+          Created the first shared component library for the storefront and documented it
+          in Storybook for the product and design teams.
+        skills: [storybook, sass, javascript]
+
+      - id: ct-003
+        weight: support
+        title: Performance budget
+        text: >-
+          Set a performance budget enforced in CI, keeping the largest contentful paint
+          under 2.5 seconds on mid-range mobile.
+        skills: [performance, lighthouse, ci-cd]
+
+    tech: [React, JavaScript, Sass, Storybook, Jenkins]
+
+# ------------------------------------------------------------
+# Skills. Keep the keys stable: claims reference them.
+# ------------------------------------------------------------
+skills:
+  javascript:        { level: shipped, years: 8 }
+  typescript:        { level: shipped, years: 5 }
+  react:             { level: shipped, years: 6 }
+  html-css-sass:     { level: shipped, years: 8 }
+  sass:              { level: shipped, years: 8 }
+  testing:           { level: shipped }
+  lighthouse:        { level: working }
+  design-systems:    { level: shipped, years: 5 }
+  accessibility:     { level: shipped }
+  performance:       { level: shipped }
+  playwright:        { level: shipped, years: 3 }
+  jest:              { level: working }
+  storybook:         { level: shipped }
+  ci-cd:             { level: working }
+  nodejs:            { level: working, years: 3 }
+  rest-apis:         { level: working }
+  sql:               { level: working }
+  cms:               { level: working }
+  graphql:           { level: conceptual }   # a gap: do not put it on a CV
+  vue:               { level: none }         # a gap: do not put it on a CV
+  karma:             { level: shipped, show: on_demand }   # only when asked
+
+# ------------------------------------------------------------
+# Things you must never claim, even when a posting asks for them.
+# Write the permitted alternative in the same line.
+# ------------------------------------------------------------
+do_not_claim:
+  - Formal line management of engineers (tech leadership only)
+  - Mobile-native development (Swift, Kotlin); responsive web only
+  - Cluster administration or platform operations on Kubernetes
+  - Writing Go as a production language (migrated a service from Go to JavaScript only)

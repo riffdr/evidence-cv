@@ -1,0 +1,51 @@
+version: 1
+updated: 2026-01-01
+
+# ============================================================
+# Vocabulary harvested from job postings.
+#
+# RULE: this file supplies WORDS, never FACTS.
+# A phrase found here may only be used if experience.yaml backs
+# what it describes. No employer, number or technology enters a CV
+# from this file.
+# ============================================================
+
+verbs:
+  - own end to end
+  - lead
+  - shape (architecture, standards)
+  - define (patterns, standards)
+  - translate (designs into interfaces)
+  - partner with (product, design, back-end)
+  - mentor
+  - raise (the team's practice)
+  - de-risk
+  - validate decisions against metrics
+
+nouns:
+  - design system
+  - component library
+  - design tokens
+  - accessibility baseline
+  - performance budget
+  - visual regression
+  - developer experience
+  - front-end platform
+
+themes:
+  ownership:
+    - "owned the entire UI architecture"
+    - "end-to-end ownership from spec to release"
+  quality:
+    - "a safety net, not a rubber stamp"
+    - "failures traced to root cause rather than loosened tolerances"
+  collaboration:
+    - "with product and design"
+    - "reviewed by peers before merge"
+  modernisation:
+    - "replaced the legacy stack without blocking delivery"
+    - "migrated incrementally, in production"
+
+# Postings you harvested from. Keep raw text outside the repo, or in an
+# ignored folder: postings are other people's content.
+sources: []

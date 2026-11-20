@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{name}} - Resume</title>
+<style>
+  @font-face { font-family: "Oswald"; font-weight: 200; src: url("{{assets}}/fonts/OswaldExtraLight-regular.ttf"); }
+  @font-face { font-family: "Oswald"; font-weight: 300; src: url("{{assets}}/fonts/OswaldLight-regular.ttf"); }
+  @font-face { font-family: "Assistant"; font-weight: 200; src: url("{{assets}}/fonts/AssistantExtraLight-regular.ttf"); }
+  @font-face { font-family: "Assistant"; font-weight: 300; src: url("{{assets}}/fonts/AssistantLight-regular.ttf"); }
+  @font-face { font-family: "Assistant"; font-weight: 400; src: url("{{assets}}/fonts/Assistant-regular.ttf"); }
+  @font-face { font-family: "Assistant"; font-weight: 600; src: url("{{assets}}/fonts/AssistantSemiBold-regular.ttf"); }
+  @font-face { font-family: "Assistant"; font-weight: 700; src: url("{{assets}}/fonts/Assistant-bold.ttf"); }
+  @font-face { font-family: "Work Sans"; font-weight: 200; font-style: italic; src: url("{{assets}}/fonts/WorkSansExtraLight-italic.ttf"); }
+
+  :root {
+    --ink: #000;
+    --heading: #434343;
+    --body: #666;
+    --link: #1155cc;
+    --rule: #434343;
+    --muted-bg: #f3f3f3;
+  }
+
+  @page { size: A4; margin: 6mm 0 8mm 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Assistant", sans-serif;
+    font-weight: 300;
+    font-size: 9.6pt;
+    line-height: 1.55;
+    color: var(--body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { color: var(--link); text-decoration: none; }
+  strong { font-weight: 700; }
+
+  header { text-align: center; padding: 2mm 0 6mm; border-bottom: 0.9mm solid #000; }
+  header h1 { font: 200 41pt/1.1 "Oswald", sans-serif; color: var(--heading); margin: 0; letter-spacing: 0; }
+  header .headline { font: 200 20pt/1.2 "Oswald", sans-serif; color: var(--body); margin: 1.5mm 0 0; }
+
+  .cols { display: flex; align-items: stretch; margin-top: 4.5mm; }
+  .side { flex: 0 0 49.5mm; margin-left: 5.7mm; margin-right: 1.8mm; }
+  .main { flex: 1; border-left: 0.3mm solid #999; padding: 0 6.4mm 0 3mm; }
+
+  h2 {
+    font: 300 15pt/1.2 "Oswald", sans-serif;
+    color: var(--heading);
+    text-transform: uppercase;
+    margin: 0 0 2.5mm;
+    padding-bottom: 0.8mm;
+    border-bottom: 0.4mm solid var(--rule);
+    break-after: avoid;
+  }
+  .main h2 { margin-right: 6.4mm; }
+  section { margin-bottom: 7mm; }
+  .side section { break-inside: auto; }
+
+  .contact li { list-style: none; display: flex; align-items: center; gap: 2.2mm; margin: 0 0 3mm; font-size: 8.6pt; }
+  .contact { padding: 0; margin: 0; }
+  .contact img { width: 4.2mm; height: 4.2mm; flex: none; }
+  .side p, .side li { font-size: 9.2pt; line-height: 1.6; }
+  .side p { margin: 0 0 0.6mm; }
+  .side b { font-weight: 400; color: #000; }
+  .plain { padding: 0; margin: 0; }
+  .plain li { list-style: none; margin: 0; }
+  .awards p { margin-bottom: 3.5mm; }
+
+  .ref { background: var(--muted-bg); padding: 2mm 3mm; margin: 0 0 2mm; break-inside: avoid; line-height: 1.35; font-size: 9.2pt; }
+  .ref .n { font-weight: 700; color: #333; }
+  .ref .t { font: italic 200 10pt "Work Sans", sans-serif; }
+
+  .profile p { margin: 0 0 3.2mm; text-align: justify; }
+  .job { margin-bottom: 5.5mm; }
+  .job h3 { font: 300 11.5pt/1.3 "Assistant", sans-serif; color: var(--heading); margin: 0; break-after: avoid; }
+  .job .meta { font-size: 8.4pt; margin: 0.5mm 0 1.6mm; break-after: avoid; }
+  .job ul { margin: 0; padding: 0; }
+  .job li { list-style: none; position: relative; padding-left: 5mm; margin: 0 0 0.6mm; text-align: justify; }
+  .job li::before { content: "\25CF"; position: absolute; left: 0.4mm; top: 0; font-size: 7pt; line-height: 2.1; }
+  .job li ul { margin-top: 0.5mm; }
+  .job li li::before { content: "\25CB"; }
+  .job li strong { color: #555; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{name}}</h1>
+  <div class="headline">{{headline}}</div>
+</header>
+
+<div class="cols">
+  <aside class="side">
+    <section>
+      <h2>Contact</h2>
+      <ul class="contact">{{contact}}</ul>
+    </section>
+    <section>
+      <h2>Skills</h2>
+      {{skills}}
+    </section>
+    <section>
+      <h2>Education</h2>
+      {{education}}
+    </section>
+    <section>
+      <h2>Languages</h2>
+      {{languages}}
+    </section>
+    <section class="awards">
+      <h2>Awards</h2>
+      {{awards}}
+    </section>
+    <section>
+      <h2>References</h2>
+      {{references}}
+    </section>
+  </aside>
+
+  <main class="main">
+    <section class="profile">
+      <h2>Profile</h2>
+      {{profile}}
+    </section>
+    <section>
+      <h2>Work Experience</h2>
+      {{experience}}
+    </section>
+  </main>
+</div>
+</body>
+</html>

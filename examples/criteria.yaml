@@ -1,0 +1,111 @@
+version: 1
+updated: 2026-01-01
+
+# ============================================================
+# What counts as a job worth applying to.
+#
+# Step 1 (mechanical): hard_filters. If any fires, the posting is
+# discarded before any deeper analysis. Keep this list short and
+# absolute: additions here are the rules you never want to relitigate.
+# Step 2 (judgement): target_roles + stack + signal_weights produce a
+# 0-100 score, compared against `thresholds`.
+# ============================================================
+
+hard_filters:
+  title_block:
+    - junior
+    - jr
+    - intern
+    - internship
+    - trainee
+    - graduate
+    - "entry level"
+
+  seniority_allowed: [senior, staff, principal, lead, architect]
+
+  # Languages you cannot work in. Patterns, not prose.
+  languages_block:
+    - "German (fluent|native|C1|C2|required|mandatory)"
+    - "Portuguese (fluent|native|C1|C2|required|mandatory)"
+
+  location:
+    # Remote anywhere in these regions. Hybrid only up to N days, in this country.
+    allow_remote: true
+    allow_hybrid: true
+    hybrid_max_days_per_week: 1
+    hybrid_country: Spain
+    block_onsite_only: true
+    remote_region_must_include: [Spain, EU, Europe, Worldwide, EMEA]
+    remote_region_block:
+      - "US only"
+      - "USA only"
+      - "Must reside in the US"
+      - "UK only"
+      - "Must reside in the UK"
+      - "US work authorization required"
+
+  contract:
+    allowed: [employee]
+    block: [freelance-only, contractor-only, "B2B only"]
+
+  # Phrases that end the conversation regardless of how good the role is.
+  description_block:
+    - "security clearance"
+    - "relocation required"
+
+# ------------------------------------------------------------
+# Roles worth tailoring for. Primary = the title you want next.
+# ------------------------------------------------------------
+target_roles:
+  primary:
+    - Senior Front End Engineer
+    - Staff Front End Engineer
+    - Design Systems Engineer
+    - Front End Architect
+  secondary:
+    - Developer Experience (DX) Engineer
+    - UI Platform Engineer
+    - Senior Full Stack Engineer (web)
+
+# ------------------------------------------------------------
+# How a posting's stack maps onto your skills in experience.yaml.
+# ------------------------------------------------------------
+stack:
+  must_have_any: [javascript, typescript]
+  strong_match: [react, typescript, design-systems, accessibility, playwright, storybook]
+  nice_to_have: [nodejs, jest, ci-cd, graphql, monorepos]
+  avoid:
+    - "backend-only (Java, Go, Python)"
+    - "Angular-only"
+    - "UI-only (no engineering ownership)"
+    - "WordPress / Shopify theming"
+
+# ------------------------------------------------------------
+# Score (0-100). Weights must sum to 100.
+# ------------------------------------------------------------
+signal_weights:
+  role_fit: 30          # matches target_roles
+  skills_match: 25      # stack backed by shipped/working skills
+  remote_policy: 15     # full remote beats 1-day hybrid
+  seniority_fit: 10     # senior/staff with ownership and impact
+  company_signals: 10   # product, stability, team
+  salary: 10            # neutral (0) when not published
+
+bonuses:
+  agentic_or_ai_tooling_focus: +5
+  design_system_ownership: +5
+  accessibility_focus: +3
+
+penalties:
+  required_skill_marked_none_or_conceptual: -10   # required, and the database says none/conceptual
+  hybrid_exactly_one_day: -2
+
+salary:
+  min_eur_year: 80000        # gross per year
+  contract_type: employee
+  neutral_if_not_published: true
+
+thresholds:
+  apply: 75      # >= 75: Apply
+  maybe: 55      # 55-74: Maybe, decide with the user
+  # < 55: Skip
