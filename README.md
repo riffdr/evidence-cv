@@ -146,6 +146,10 @@ In OpenCode the skill is already installed at `.opencode/skills/tailor-cv/`; oth
 
 ---
 
+## Contributing
+
+Issues and pull requests are welcome — see [`CONTRIBUTING.md`](CONTRIBUTING.md) for the details. The short version: engine, template and docs yes; real personal data never; and the core scripts stay standard-library only.
+
 ## Licence
 
 MIT for the code. The bundled fonts (Assistant, Oswald, Work Sans) are under the SIL Open Font License 1.1 — see `template/fonts/OFL.txt`.

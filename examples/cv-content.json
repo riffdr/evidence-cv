@@ -6,7 +6,9 @@
     "email": "alex@example.com",
     "location": "City, Country",
     "linkedin": "linkedin.com/in/example",
-    "linkedin_url": "https://linkedin.com/in/example"
+    "linkedin_url": "https://linkedin.com/in/example",
+    "github": "github.com/example",
+    "github_url": "https://github.com/example"
   },
   "skills": [
     {
